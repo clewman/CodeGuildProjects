@@ -1,0 +1,47 @@
+/*charcoal 999*/
+/*platinum eded*/
+/*gold 255, 190, 51   */
+
+#oracle {
+    font-family: 'Pinyon Script', cursive;
+    color: rgb(255, 190, 51);
+    text-align: center;
+    margin-top: 20%;
+    font-size: 5em;
+}
+
+body {
+    background-color: #333;
+    color: #ededed;
+    text-shadow: 2px 2px #333;
+    /*background: url("images/theda.jpg") cover ;*/
+}
+
+
+.theda-image {
+  background-image: url("images/theda.jpg"); /* The image used */
+  background-color: #333; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+input {
+    margin: 10px 0;
+    padding: 3px;
+    width: 25%;
+    border-radius: 5px;
+    background-color: silver;
+    color: black;
+}
+
+button {
+    margin-top: 3px;
+    background-color: rgb(255, 190, 51);
+    border: none;
+    padding: 5px;
+    color: #333;
+    border-radius: 5px;
+    width: 5%;
+}

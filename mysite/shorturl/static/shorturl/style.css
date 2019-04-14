@@ -1,0 +1,60 @@
+/*dark turq 00AAB2*/
+/*light turq 63F8FF*/
+/*bright orange FF6500*/
+/*dark orange B24600*/
+
+body {
+    background-color: #333;
+    background-image: url("images/ice1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    background-color: #63f8ff;
+    margin: 2em;
+    padding: 1em;
+    border: 2px solid #00AAB2;
+    border-radius: 3px;
+}
+
+#header {
+    margin: -3% -3% 0 -3%;
+    text-align: center;
+    padding: 5%;
+}
+
+
+button {
+    width: 15%;
+    margin-top: 3%;
+    padding: 1%;
+    /*font-weight: bold;*/
+    font-size: 1em;
+    background-color: white;
+    border-radius: 5%;
+}
+
+input {
+    width: 70%;
+    padding: 2%;
+    font-size: 1em;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+}
+th {
+    font-size: 1.5em;
+    text-align: left;
+}
+
+th, td {
+    border-bottom: 1px solid #999;
+    padding: 1%;
+}
+
+td {
+    font-size: 1.25em;
+}

@@ -1,0 +1,44 @@
+<!--I am stuck but thinking that I create a new url for each small link, then that url automatically redirects to the original input site-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'shorturl/style.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header">
+    <h1>URL Shortener</h1>
+    <h3>Use the 'URL Shortener' to shorten a longer url into a manageable length that can be used for sharing.</h3>
+</div>
+    <div>
+        <form action="{% url 'shorturl:add' %}" method="post" >
+            {% csrf_token %}
+            <h2>Add URL to Shorten:</h2>
+            <input type="text" name="Web_Url">
+            <br>
+            {{ code }}
+            <button id="save" type="submit">save</button>
+        </form>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Code</th>
+                <th>Url</th>
+            </tr>
+            {% for url in urls %}
+            <tr>
+                <!--<td><a href="{{url.original_url}}">{{url.code}}</a></td>-->
+                <td><a href="http://localhost:8000{% url 'shorturl:redirect' url.code %}">{{url.code}}</a></td>
+                <td>{{url.original_url}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</body>
+</html>

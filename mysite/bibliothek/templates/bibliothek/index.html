@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bibliothek/style.css' %}">
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Library</h2>
+
+
+    <h3>Search the Catalog</h3>
+
+    <table>
+        <tr>
+            <th>
+                Book Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Published Date
+            </th>
+            <th>
+                Book Availability
+
+            </th>
+        </tr>
+
+        <tr>
+            {% for book in books %}
+            <td>
+                {{ book.title }}
+            </td>
+            <td>
+                {{ book.author }}
+            </td>
+            <td>
+                {{ book.pub_date }}
+            </td>
+
+            <td>
+                <form action="{% url 'bibliothek:checkout' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{book.id}}" name="book_id"/>
+                    <button type="submit" value="Submit">{% if book.check_out %}checkin{% else %}checkout{% endif %}</button>
+                </form>
+
+
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+
+    <h3>Your Account</h3>
+
+    <!--<p>Welcome, {{user.username}}</p>-->
+    <a href="{% url 'bibliothek:logout_user' %}">logout</a>
+    <ul>an input field to search for:
+        <li>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="book">
+            </form>
+        </li>
+        <li>books that user currently has checked out</li>
+    </ul>
+
+    <h3>Add a book to the Catalog</h3>
+    <div class="row">
+
+        <div class="col s3">
+            <p>Book Title</p>
+             <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="book">
+                    <option value="{{book.id}}">{{book.available}}</option></form>
+            <!---->
+<!--<select class="browser-default" name="author_id">-->
+                <!--{% for book in books %}-->
+                <!--<input type="text" name="book">{{book_title.name}}</input>-->
+                <!--{% endfor %}-->
+            <!--</select>-->
+        </div>
+        <div class="col s3">
+            <p>Author</p>
+
+            <select class="browser-default" name="author_id">
+                {% for author in authors %}
+                <option value="{{author.id}}">{{author.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col s3">
+            <p>Publication Date</p>
+            <input type="date" name="pub_date">
+        </div>
+        <div class="col s12">
+            <br>
+            <button type="submit" class="waves-effect waves-light btn-large">save</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+});</script>
+
+</body>
+</html>
