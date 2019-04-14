@@ -1,0 +1,10 @@
+/* decide what background looks like */
+body {
+  background-color: #FF670A;
+  color:white;
+  font-family: 'helvetica', 'Open Sans';
+  letter-spacing: 0.8px;
+}
+/* decide what active player bg looks like */
+/* decide what winning screen looks like */
+/* class to show dice */
